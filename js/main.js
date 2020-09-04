@@ -52,6 +52,9 @@ var app = new Vue({
                 this.totalE = parseInt(this.horaE) * parseInt(this.cant1);
             }
         },
+        vendedor(){
+            
+        }
             
         
     }       
