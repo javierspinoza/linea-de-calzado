@@ -40,7 +40,7 @@
                     <div v-show="tipo==2">
                         <div class="col-md-6">
                             <h5>Ingrese su contraseña:</h5>
-                            <input type="number" class="form-control"  placeholder="ingrese su contraseña" v-model="cont2">
+                            <input type="number" min="4" max="4" class="form-control"  placeholder="ingrese su contraseña" v-model="cont2">
                         </div>
                     </div>
                     <div v-show="tipo==3">
@@ -67,7 +67,7 @@
                         <br>                            
                             <input type="button"value="Procesar"class="btn btn-success" v-on:click="procesar">                                                                      
                     </div>
-                    <div v-show="tipo==3">
+                    <div v-show="tipo==3 && cont3==1233">
                         <div class="col-md-6">
                             <h5>Ingrese su nombre:</h5>
                             <input type="text" class="form-control"  placeholder="Ingrese su nombre" v-model="nom2">
@@ -80,7 +80,7 @@
                             <input type="button"value="Procesar"class="btn btn-success" v-on:click="procesar">                                          
                             
                     </div> 
-                    <div v-show="tipo==4">
+                    <div v-show="tipo==4 && cont4==5334">
                         <div class="col-md-6">
                             <h5>Ingrese su nombre:</h5>
                             <input type="text" class="form-control"  placeholder="Ingrese su nombre" v-model="nom3">
@@ -121,11 +121,11 @@
                                 <td v-text="objeto.cant"></td>
                                 <td v-text="objeto.nuC"></td>                                                                                                                                                                   
                             </tr>
-                            <tr style="background-color: darkgray;">
+                            <!-- <tr style="background-color: darkgray;">
                                 <td colspan="1"></td>
                                 <td align="right"><strong>Total</strong></td>
                                 <td>{{total1}}</td>                                                                                                                                  
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>                          
                 </div>                                 
