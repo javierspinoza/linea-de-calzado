@@ -47,30 +47,32 @@
                     <div v-show="tipo==2">
                         <div class="col-md-6">
                             <h5>Ingrese su contraseña:</h5>
-                            <input type="number" min="4" max="4" class="form-control"
+                            <input maxlength="4" @keyup.enter="password" type="text" min="4" max="4" class="form-control"
                                 placeholder="ingrese su contraseña" v-model="cont2">
                         </div>
                     </div>
                     <div v-show="tipo==3">
                         <div class="col-md-6">
                             <h5>Ingrese su contraseña:</h5>
-                            <input type="number" class="form-control" placeholder="ingrese su contraseña" v-model="cont3">
+                            <input type="number" class="form-control" placeholder="ingrese su contraseña"
+                                v-model="cont3">
                         </div>
                     </div>
                     <div v-show="tipo==4">
                         <div class="col-md-6">
                             <h5>Ingrese su contraseña:</h5>
-                            <input type="number" class="form-control" placeholder="ingrese su contraseña" v-model="cont4">
+                            <input type="number" class="form-control" placeholder="ingrese su contraseña"
+                                v-model="cont4">
                         </div>
                     </div>
-                    <div v-show="tipo==2 && cont2==1234">
+                    <div v-show="ver==2">
                         <div class="col-md-6">
                             <h5>Ingrese su nombre:</h5>
                             <input type="text" class="form-control" placeholder="ingrese nombre" v-model="nom1">
                         </div>
                         <div class="col-md-6">
                             <h5>Ingrese horas extras:</h5>
-                            <input type="number" class="form-control" placeholder="horas extras" v-model="cant1">
+                            <input type="number" class="form-control" placeholder="horas extras" v-model.number="cant1">
                         </div>
                         <br>
                         <input type="button" value="Procesar" class="btn btn-success" v-on:click="procesar">
@@ -141,10 +143,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 </body>
 
 <script src="js/vue.js"></script>
