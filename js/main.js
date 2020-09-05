@@ -68,6 +68,10 @@ var app = new Vue({
 
 
         },
+        multiplicar:function(){
+            alert("haz la multiplicacion que quieras")
+        },
+
         secretario(){
             if (this.cant1<0) {
                 this.mensaje("Horas NO validas ", "error");
