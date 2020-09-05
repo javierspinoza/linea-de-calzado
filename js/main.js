@@ -49,6 +49,9 @@ var app = new Vue({
     ozkr(){
         alert("Hola mundo");
     },
+    otroDemo(){
+
+    },
     vendedor: function () {},
 
     ensamblador: function () {},
