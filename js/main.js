@@ -81,6 +81,9 @@ var app = new Vue({
         multiplicar:function(){
             alert("haz la multiplicacion que quieras")
         },
+        coseno(){
+            alert("cos");
+        },
 
         secretario(){
             if (this.cant1<0) {
