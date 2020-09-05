@@ -41,7 +41,6 @@ var app = new Vue({
         this.vHora = 52000;
         this.msj = "Secretario";
 
-<<<<<<< HEAD
         this.vHoraT = parseInt(this.vHora) * (180 / 100);
         this.totalEx = parseInt(this.cant1) * parseInt(this.vHoraT);
         this.total = parseInt(this.salarioB) + parseInt(this.totalEx);
@@ -64,23 +63,3 @@ var app = new Vue({
     },
   },
 });
-=======
-        },
-        newOzKr(){
-
-        },
-        ensamblador:function(){
-            
-        }, 
-        mensaje: function (msj, icono) {
-            Swal.fire({
-            position: 'top-end',
-            icon: icono,
-            title: msj,
-            showConfirmButton: false,
-            timer: 1500
-            })
-        },
-    }       
-})
->>>>>>> OzKr
