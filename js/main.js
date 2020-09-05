@@ -40,7 +40,6 @@ var app = new Vue({
 
             }
         },
-
         procesar:function() {
             if(this.tipo == "2"){
                 this.salarioB = 857000;
@@ -52,8 +51,22 @@ var app = new Vue({
                 this.totalE = parseInt(this.horaE) * parseInt(this.cant1);
             }
         },
-        ensamblador:function(){
-            
+        ensamblador:function(){        
+        },
+        vendedor(){
+            if (this.tipo == "2") {
+                this.salarioB = 750000;
+                this.sTrans = 102854;
+
+                if (this.valor1 >= 5000000 && this.valor1 < 10000000) {
+                    this.comi = this.valor1 * (10 / 100);
+                    this.totalV = this.salarioB + this.comi + this.sTrans;
+                }
+                else if (this.valor1 >= 10000000 ){
+                    this.comi = this.venta * (20 / 100);
+                    this.totalV = this.salarioB + this.comi + this.sTrans;     
+                }  
+            }
         }  
         
     }       
