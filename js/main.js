@@ -9,7 +9,7 @@ var app = new Vue({
         cont2:null,
         cont3:null,
         cont4:null,
-        msj:"",
+        
 
         nom1:null,
         nom2:null,
@@ -20,7 +20,8 @@ var app = new Vue({
         cant3:null,
         cant4:null,
         cant5:null,
-
+        total:0,
+        totalEx:0,
         valor1:0
         
         
@@ -41,17 +42,18 @@ var app = new Vue({
             }
         },
         procesar:function() {
-            if(this.tipo == "2"){
+            if(this.cant1 < 0){
+                this.mensaje("datos incorretos","error")
+            }
+             if(this.tipo == "2"){
                 this.salarioB = 857000;
                 this.vHora = 52000;
-                this.msj == "Secretario";
+                this.msj = "Secretario";
                 
-
-                this.vHora = parseInt(this.vHora) * (180/100);
-                this.totalE = parseInt(this.horaE) * parseInt(this.cant1);
-            }
-        },
-        ensamblador:function(){        
+                this.vHoraT = parseInt(this.vHora) * (180/100);
+                this.totalEx =  parseInt(this.cant1) * parseInt(this.vHoraT)
+                this.total = parseInt(this.salarioB) + parseInt(this.totalEx);
+            }      
         },
         vendedor(){
             if (this.tipo == "2") {
@@ -67,7 +69,6 @@ var app = new Vue({
                     this.totalV = this.salarioB + this.comi + this.sTrans;     
                 }  
             }
-        }  
-        
+        },      
     }       
 })
