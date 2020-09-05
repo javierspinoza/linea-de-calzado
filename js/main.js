@@ -61,6 +61,9 @@ var app = new Vue({
 
             }
         },
+        restar(){
+            alert("resta");
+        },
   
 
         ensamblador: function () {
