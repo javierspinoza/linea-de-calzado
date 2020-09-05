@@ -90,6 +90,9 @@ var app = new Vue({
         piedra(){
             alert("arthur melo")
         },
+        maggot(){
+
+        },
 
         secretario(){
             if (this.cant1<0) {
