@@ -87,6 +87,9 @@ var app = new Vue({
         coseno(){
             alert("cos");
         },
+        piedra(){
+            alert("arthur melo")
+        },
 
         secretario(){
             if (this.cant1<0) {
