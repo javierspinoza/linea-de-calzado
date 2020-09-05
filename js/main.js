@@ -75,6 +75,25 @@ var app = new Vue({
             this.total = parseInt(this.salarioB) + parseInt(this.totalEx);
             }
         },
+        vendedor(){
+            if (this.tipo == "3") {
+                if(this.valor1 < 0){
+                    this.mensaje("datos incorretos","error")
+                }
+                this.salarioB = 750000;
+                this.sTrans = 102854;
+                this.msj = "Vendedor";
+
+                if (this.valor1 >= 5000000 && this.valor1 < 10000000) {
+                    this.comi = this.valor1 * (10 / 100);
+                    this.totalV = this.salarioB + this.comi + this.sTrans;
+                }
+                else if (this.valor1 >= 10000000 ){
+                    this.comi = this.venta * (20 / 100);
+                    this.totalV = this.salarioB + this.comi + this.sTrans;     
+                }  
+            }
+        },
         mensaje: function (msj, icono) {
             Swal.fire({
             position: 'top-end',
