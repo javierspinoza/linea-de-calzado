@@ -59,7 +59,9 @@ var app = new Vue({
         vendedor:function(){
 
         },
+        newOzKr(){
 
+        },
         ensamblador:function(){
             
         }, 
