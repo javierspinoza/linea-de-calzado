@@ -71,7 +71,9 @@ var app = new Vue({
 
 
         },
-
+        dividir(){
+            alert("metodo divide");
+        },
 
         sumar(){
             alert("esta sumando");
