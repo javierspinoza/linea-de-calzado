@@ -78,6 +78,9 @@ var app = new Vue({
         sumar(){
             alert("esta sumando");
         },
+        potenciacion(){
+            alert("exelente")
+        },
         multiplicar:function(){
             alert("haz la multiplicacion que quieras")
         },
