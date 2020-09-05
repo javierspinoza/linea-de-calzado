@@ -68,6 +68,10 @@ var app = new Vue({
 
 
         },
+
+        sumar(){
+            alert("esta sumando");
+        },
         secretario(){
             if (this.cant1<0) {
                 this.mensaje("Horas NO validas ", "error");
