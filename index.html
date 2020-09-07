@@ -40,32 +40,28 @@
                     <div v-show="tipo==1">
                         <div class="col-md-6">
                             <h5>Ingrese su contraseña:</h5>
-                            <input type="number" class="form-control" placeholder="ingrese su contraseña"
-                                v-model="cont1">
+                            <input maxlength="4" @keyup.enter="password" type="text" class="form-control" placeholder="ingrese su contraseña" v-model="cont1">
                         </div>
                     </div>
                     <div v-show="tipo==2">
                         <div class="col-md-6">
                             <h5>Ingrese su contraseña:</h5>
-                            <input maxlength="4" @keyup.enter="password" type="text" min="4" max="4" class="form-control"
-                                placeholder="ingrese su contraseña" v-model="cont2">
+                            <input maxlength="4" @keyup.enter="password" type="text" class="form-control" placeholder="ingrese su contraseña" v-model="cont2">
                         </div>
                     </div>
                     <div v-show="tipo==3">
                         <div class="col-md-6">
                             <h5>Ingrese su contraseña:</h5>
-                            <input type="number" class="form-control" placeholder="ingrese su contraseña"
-                                v-model="cont3">
+                            <input maxlength="4" @keyup.enter="password" type="text" class="form-control" placeholder="ingrese su contraseña" v-model="cont3">
                         </div>
                     </div>
                     <div v-show="tipo==4">
                         <div class="col-md-6">
                             <h5>Ingrese su contraseña:</h5>
-                            <input type="number" class="form-control" placeholder="ingrese su contraseña"
-                                v-model="cont4">
+                            <input maxlength="4" @keyup.enter="password" type="text" class="form-control" placeholder="ingrese su contraseña" v-model="cont4">
                         </div>
                     </div>
-                    <div v-show="ver==2">
+                    <div v-show="ver==2 && tipo==2">
                         <div class="col-md-6">
                             <h5>Ingrese su nombre:</h5>
                             <input type="text" class="form-control" placeholder="ingrese nombre" v-model="nom1">
@@ -75,25 +71,25 @@
                             <input type="number" class="form-control" placeholder="horas extras" v-model.number="cant1">
                         </div>
                         <br>
-                        <input type="button" value="Procesar" class="btn btn-success" v-on:click="procesar">
+                        <input type="button" value="Procesar" class="btn btn-success" v-on:click="secretario">
                     </div>
-                    <div v-show="tipo==3 && cont3==1233">
+                    <div v-show="ver==3 && tipo==3">
                         <div class="col-md-6">
                             <h5>Ingrese su nombre:</h5>
-                            <input type="text" class="form-control" placeholder="Ingrese su nombre" v-model="nom2">
+                            <input type="text" class="form-control" placeholder="Ingrese su nombre" v-model="nom1">
                         </div>
                         <div class="col-md-6">
                             <h5>Valor ventas en el mes:</h5>
                             <input type="number" class="form-control" placeholder="ventas del mes" v-model="valor1">
                         </div>
                         <br>
-                        <input type="button" value="Procesar" class="btn btn-success" v-on:click="procesar">
+                        <input type="button" value="Procesar" class="btn btn-success" v-on:click="vendedor">
 
                     </div>
-                    <div v-show="tipo==4 && cont4==5334">
+                    <div v-show="ver==4 && tipo==4">
                         <div class="col-md-6">
                             <h5>Ingrese su nombre:</h5>
-                            <input type="text" class="form-control" placeholder="Ingrese su nombre" v-model="nom3">
+                            <input type="text" class="form-control" placeholder="Ingrese su nombre" v-model="nom1">
                         </div>
                         <div class="col-md-6">
                             <h5>Horas extras:</h5>
@@ -128,9 +124,9 @@
                         <tbody>
                             <tr v-for="objeto in arrayDatos"
                                 v-bind:style="objeto.total>6000000?'color:red':'color:green'">
-                                <td v-text="objeto.nom"></td>
-                                <td v-text="objeto.cant"></td>
-                                <td v-text="objeto.nuC"></td>
+                                <td v-text="objeto.nombre"></td>
+                                <td v-text="objeto.cargo"></td>
+                                <td v-text="objeto.totalR"></td>
                             </tr>
                             <!-- <tr style="background-color: darkgray;">
                                 <td colspan="1"></td>
@@ -143,13 +139,6 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 62a8729aedd0cdb4ffe2a207fd7b6582a118b2b3
 </body>
 
 <script src="js/vue.js"></script>
