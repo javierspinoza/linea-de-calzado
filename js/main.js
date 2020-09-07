@@ -39,11 +39,8 @@ var app = new Vue({
                 }else{
                     this.mensaje("error en la clave","error");
                 }
-
             }
-            // if(this.cont3== "1233"){
-            
-            // }
+           
             // else if(this.cont4== "5334"){
 
             // }
@@ -61,39 +58,11 @@ var app = new Vue({
 
             }
         },
-        restar(){
-            alert("resta");
-        },
-  
-
         ensamblador: function () {
             alert("realizando pruebas");
 
 
         },
-        dividir(){
-            alert("metodo divide");
-        },
-
-        sumar(){
-            alert("esta sumando");
-        },
-        potenciacion(){
-            alert("exelente")
-        },
-        multiplicar:function(){
-            alert("haz la multiplicacion que quieras")
-        },
-        coseno(){
-            alert("cos");
-        },
-        piedra(){
-            alert("arthur melo")
-        },
-        maggot(){
-
-        },
-
         secretario(){
             if (this.cant1<0) {
                 this.mensaje("Horas NO validas ", "error");
@@ -107,25 +76,6 @@ var app = new Vue({
             this.total = parseInt(this.salarioB) + parseInt(this.totalEx);
             }
 
-        },
-        vendedor(){
-            if (this.tipo == "3") {
-                if(this.valor1 < 0){
-                    this.mensaje("datos incorretos","error")
-                }
-                this.salarioB = 750000;
-                this.sTrans = 102854;
-                this.msj = "Vendedor";
-
-                if (this.valor1 >= 5000000 && this.valor1 < 10000000) {
-                    this.comi = this.valor1 * (10 / 100);
-                    this.totalV = this.salarioB + this.comi + this.sTrans;
-                }
-                else if (this.valor1 >= 10000000 ){
-                    this.comi = this.venta * (20 / 100);
-                    this.totalV = this.salarioB + this.comi + this.sTrans;     
-                }  
-            }
         },
         mensaje: function (msj, icono) {
             Swal.fire({
