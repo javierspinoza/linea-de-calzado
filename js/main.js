@@ -9,26 +9,25 @@ var app = new Vue({
         cont1:null,
         cont2:null,
         cont3:null,
-        cont4:null, 
+        cont4:null,
         
-
+        tHijo:0,
+    
         nom1:null,
         // nom2:null,
         // nom3:null,
 
         cant1:null,
         cant2:null,
-        cant3:null,
-        cant4:null,
-        cant5:null,
-        valor1:0,
+        cant3:0,
+        cant4:0,
+        cant5:0,
+        valor1:null,
 
-        total:0,
-        totalEx:0,
-        total1:0,
-        msm:null,
-        
-        
+        msm:null
+
+       
+       
     },
     methods: {
         password:function(){
@@ -65,33 +64,17 @@ var app = new Vue({
             if(this.tipo== "4"){
                 if (this.cont4=="1232") {
                     this.ver=4;
-                    this.ensamblador();
+                    // this.ensambla();
                 }else{
                     this.mensaje("error en la clave","error");
                 }
 
             }
-           
-        },
-
-        procesar:function() {
-            
-            // if(this.tipo == "1"){
-            //     alert("administrador");
-            // }else if(this.tipo == "2"){
-            //     this.password("2",this.cont2);
-            //     this.secretario();
-            // }if(this.tipo == "3"){
-            //     this.password("3",this.cont3);
-            //     this.vendedor();
-
-            // }
-        },
-         
+        },     
         secretario(){
             if(this.tipo == "2"){
                 if (this.cant1<0) {
-                    this.mensaje("Horas NO validas ", "error");
+                    this.mensaje("Horas NO válidas ", "error");
                     return;
                 }else{                    
                 this.salarioB = 857000;
@@ -103,13 +86,13 @@ var app = new Vue({
                 this.total = parseInt(this.salarioB) + parseInt(this.totalEx);
                 }
                 this.arrayDatos.push({nombre:this.nom1, cargo:this.msm, totalR:this.total})
+                this.nom1=null;
             }
         },
-
         vendedor(){
             if(this.tipo == "3"){
                 if (this.valor1 < 0) {
-                    this.mensaje("El valor ingresado no es valido", "error");
+                    this.mensaje("El valor ingresado no es válido", "error");
                     return;
                 }
                 else{
@@ -130,8 +113,70 @@ var app = new Vue({
                 }
             }
             this.arrayDatos.push({nombre:this.nom1, cargo:this.msm, totalR:this.total})
+            this.nom1=null;
         },
-        
+        ensambla:function(){
+            if(this.tipo == "4"){
+                if (this.cant2 < 0 || this.cant3 < 0 || this.cant4 < 0 || this.cant5 < 0) {
+                    this.mensaje("El valor ingresado no es valido", "error");
+                    return;
+                }
+                else{
+                    this.msm = "Ensamblador";
+                    this.salarioB3 = 900000;
+                    this.vHora3 = 30000;
+                    this.zTo = 2500;
+                    this.zTa = 3000;
+                    this.hijo1 = 60000;
+                    this.hijo2 = 80000;
+
+                    this.totalEx3 = this.vHora3 * (220/100);
+                    this.tHoras = this.cant2 * this.totalEx3;
+                    // ZAPATOS
+                    if (this.cant3 > 0 && this.cant3 < 1000) {
+                        this.tZato = 0;
+                    }
+                    else if (this.cant3 >= 1000 && this.cant3 < 2000) {
+                        this.totalP = this.zTo * (10/100);
+                        this.tZato = this.cant3 * this.totalP;    
+                    }
+                    if (this.cant3 >= 2000) {
+                        this.totalP = this.zTo * (20/100);
+                        this.tZato = this.cant3 * this.totalP;    
+                    }
+                    // ZAPATILLAS
+                    if (this.cant4 >= 0 && this.cant4 < 1700) {
+                        this.tZata = 0;
+                    }
+                    else if (this.cant4 >= 1700 && this.cant4 < 3000) {
+                        this.totalP1 = this.zTa * (15/100);
+                        this.tZata = this.cant4 * this.totalP1; 
+                    }
+                    if (this.cant4 >= 3000) {
+                        this.totalP1 = this.zTa * (30/100);
+                        this.tZata = this.cant4 * this.totalP1; 
+                    }
+                    // HIJOS
+                    
+                    if (this.cant5 == 0 ) {
+                        this.tHijo = 0;
+                        }
+                    else if (this.cant5 > 0 && this.cant5 <= 1) {
+                        this.tHijo = this.hijo2;
+                        }
+                    if (this.cant5 >= 2 ) {
+                        this.tHijo = this.cant5 * this.hijo1;
+                    } 
+                    
+            
+                    this.total = this.salarioB3  + 102854 + this.tZato + this.tZata + this.tHijo + this.tHoras;
+
+                    this.arrayDatos.push({nombre:this.nom1, cargo:this.msm, totalR:this.total})
+
+                    this.nom1=null;
+                }
+            }
+        },
         mensaje: function (msj, icono) {
             Swal.fire({
             position: 'top-end',
@@ -142,8 +187,14 @@ var app = new Vue({
             })
         },
 
-        // mpush(){
-        //     this.arrayDatos.push({nombre:this.nom1, cargo:this.msm, total:this.total})
-        // }
-    }       
+    },
+    computed: {
+        result: function(){
+            var result=0;
+            for (var i = 0; i < this.arrayDatos.length; i++) {
+                result = result+ parseInt(this.arrayDatos[i].total);              
+            }
+            return result;
+        }
+    },
 })
