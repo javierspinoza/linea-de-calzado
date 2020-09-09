@@ -38,10 +38,10 @@
                         <label class="form-check-label" for="inlineRadio2">Ensamblador</label>
                     </div>
                     <div v-show="tipo==1">
-                        <div class="col-md-6">
+                         <div class="col-md-6">
                             <h5>Ingrese su contraseña:</h5>
                             <input maxlength="4" @keyup.enter="password" type="text" class="form-control" placeholder="ingrese su contraseña" v-model="cont1">
-                        </div>
+                         </div>
                     </div>
                     <div v-show="tipo==2">
                         <div class="col-md-6">
@@ -61,6 +61,46 @@
                             <input maxlength="4" @keyup.enter="password" type="text" class="form-control" placeholder="ingrese su contraseña" v-model="cont4">
                         </div>
                     </div>
+
+                    <div v-show="tipo==1 && ver==1">
+                        <div class="col-md-6">
+                            <h5>Valor zapato C/U:</h5>
+                            <input type="number" class="form-control" placeholder="Valor" v-model.number="eZto">         
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Valor zapatilla C/U:</h5>
+                            <input type="number" class="form-control" placeholder="Valor" v-model.number="eZta">     
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Salario secretario:</h5>
+                            <input type="number" class="form-control" placeholder="Valor" v-model.number="eSalarioB">     
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Salario vendedor:</h5>
+                            <input type="number" class="form-control" placeholder="Valor" v-model.number="eSalarioB2">     
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Salario ensamblador:</h5>
+                            <input type="number" class="form-control" placeholder="Valor" v-model.number="eSalarioB3">     
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Comisión vendedor 10%:</h5>
+                            <input type="number" class="form-control" placeholder="Valor" v-model.number="eComi1">     
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Comisión vendedor 20%:</h5>
+                            <input type="number" class="form-control" placeholder="Valor" v-model.number="eComi2">     
+                        </div>
+                        <div class="col-md-6">
+                            <h5>cantidad máxima zapatos y zapatillas:</h5>
+                            <input type="number" class="form-control" placeholder="Valor" v-model.number="eCantZ">     
+                        </div>
+                        <br>
+                        <div class="col-md-6">
+                            <input type="button" value="Editar" class="btn btn-success" v-on:click="editar">
+                        </div>
+                    </div>
+
                     <div v-show="ver==2 && tipo==2">
                         <div class="col-md-6">
                             <h5>Ingrese su nombre:</h5>
@@ -71,7 +111,9 @@
                             <input type="number" class="form-control" placeholder="horas extras" v-model.number="cant1">
                         </div>
                         <br>
-                        <input type="button" value="Procesar" class="btn btn-success" v-on:click="secretario">
+                        <div class="col-md-6">
+                            <input type="button" value="Procesar" class="btn btn-success" v-on:click="secretario">
+                        </div>
                     </div>
                     <div v-show="ver==3 && tipo==3">
                         <div class="col-md-6">
@@ -83,8 +125,9 @@
                             <input type="number" class="form-control" placeholder="ventas del mes" v-model="valor1">
                         </div>
                         <br>
-                        <input type="button" value="Procesar" class="btn btn-success" v-on:click="vendedor">
-
+                        <div class="col-md-6">
+                            <input type="button" value="Procesar" class="btn btn-success" v-on:click="vendedor">
+                        </div>
                     </div>
                     <div v-show="ver==4 && tipo==4">
                         <div class="col-md-6">
@@ -108,7 +151,10 @@
                             <input type="number" class="form-control" placeholder="número de hijos" v-model.number="cant5">
                         </div>
                         <br>
-                        <input type="button" value="Procesar" class="btn btn-success" v-on:click="ensambla">
+                        <br>
+                        <div class="col-md-6">
+                             <input type="button" value="Procesar" class="btn btn-success" v-on:click="ensambla">
+                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-xs-12">

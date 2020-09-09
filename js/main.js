@@ -10,12 +10,7 @@ var app = new Vue({
         cont2:null,
         cont3:null,
         cont4:null,
-        
-        tHijo:0,
-    
         nom1:null,
-        // nom2:null,
-        // nom3:null,
 
         cant1:null,
         cant2:null,
@@ -24,9 +19,33 @@ var app = new Vue({
         cant5:0,
         valor1:null,
 
-        msm:null
+        eZto:0,
+        eZta:0,
+        zTo:2500,
+        zTa:3000,
 
-       
+        eSalarioB : 0,
+        eSalarioB2 : 0,
+        eSalarioB3 : 0,
+        salarioB : 857000,
+        salarioB2 : 900000,
+        salarioB3 : 900000,
+
+        comi1: 10,
+        comi2: 20,
+        eComi1: 0,
+        eComi2: 0,
+        
+        cantZ: 30000,
+        eCantZ: 0,
+
+        msm:null
+// PARA EDITAR 
+
+        
+        
+
+     
        
     },
     methods: {
@@ -35,7 +54,7 @@ var app = new Vue({
             if(this.tipo== "1"){
                 if (this.cont1=="1231") {
                     this.ver=1;
-                    this.administrador();
+                    // this.administrador();
                 }else{
                     this.mensaje("error en la clave","error");
                 }
@@ -77,15 +96,15 @@ var app = new Vue({
                     this.mensaje("Horas NO válidas ", "error");
                     return;
                 }else{                    
-                this.salarioB = 857000;
-                this.vHora = 52000;
                 this.msm = "Secretario";
+                var vHora=52000;
                 
-                this.vHoraT = parseInt(this.vHora) * (180/100);
-                this.totalEx =  parseInt(this.cant1) * parseInt(this.vHoraT);
-                this.total = parseInt(this.salarioB) + parseInt(this.totalEx);
+                let vHoraT = parseInt(vHora) * (180/100);
+                let totalEx =  parseInt(this.cant1) * parseInt(vHoraT);
+                var total = parseInt(this.salarioB) + parseInt(totalEx);
                 }
-                this.arrayDatos.push({nombre:this.nom1, cargo:this.msm, totalR:this.total})
+                this.tSecre = total;
+                this.arrayDatos.push({nombre:this.nom1, cargo:this.msm, totalR:total})
                 this.nom1=null;
             }
         },
@@ -96,82 +115,84 @@ var app = new Vue({
                     return;
                 }
                 else{
-                    this.salarioB2 = 900000;
+                    // var salarioB2 = 900000;
                     this.msm = "Vendedor";
 
                     if(this.valor1 < 5000000){
-                        this.total = this.salarioB2 + 102854;
+                        var total = this.salarioB2 + 102854;
                     }
                     else if(this.valor1 >= 5000000 && this.valor1 < 10000000){
-                        this.totalP = this.salarioB2 * (10 / 100);
-                        this.total = this.salarioB2 + this.totalP + 102854;
+                        var totalP = this.salarioB2 * (this.comi1 / 100);
+                        var total = this.salarioB2 + totalP + 102854;
                     }
                     if(this.valor1 >= 10000000){
-                        this.totalP = this.salarioB2 * (20 / 100);
-                        this.total = this.salarioB2 + this.totalP + 102854;
+                        var totalP = this.salarioB2 * (this.comi2 / 100);
+                        var total = this.salarioB2 + totalP + 102854;
                     }
                 }
             }
-            this.arrayDatos.push({nombre:this.nom1, cargo:this.msm, totalR:this.total})
+            this.tVende = total;
+            this.arrayDatos.push({nombre:this.nom1, cargo:this.msm, totalR: total})
             this.nom1=null;
         },
         ensambla:function(){
             if(this.tipo == "4"){
+                if (this.cant3 > this.cantZ || this.cant4 > this.cantZ ) {
+                    this.mensaje("El valor ingresado no es valido, max: "+ this.cantZ, "error");
+                    return;
+                }
                 if (this.cant2 < 0 || this.cant3 < 0 || this.cant4 < 0 || this.cant5 < 0) {
                     this.mensaje("El valor ingresado no es valido", "error");
                     return;
                 }
                 else{
                     this.msm = "Ensamblador";
-                    this.salarioB3 = 900000;
-                    this.vHora3 = 30000;
-                    this.zTo = 2500;
-                    this.zTa = 3000;
-                    this.hijo1 = 60000;
-                    this.hijo2 = 80000;
-
-                    this.totalEx3 = this.vHora3 * (220/100);
-                    this.tHoras = this.cant2 * this.totalEx3;
+                    var hijo1 = 60000;
+                    var hijo2 = 80000;
+                    var vHora3 = 30000;
+      
+                    let totalEx3 = vHora3 * (220/100);
+                    var tHoras = this.cant2 * totalEx3;
                     // ZAPATOS
                     if (this.cant3 > 0 && this.cant3 < 1000) {
-                        this.tZato = 0;
+                        var tZato = 0;
                     }
                     else if (this.cant3 >= 1000 && this.cant3 < 2000) {
-                        this.totalP = this.zTo * (10/100);
-                        this.tZato = this.cant3 * this.totalP;    
+                        var totalP = (this.zTo * (10/100)) + this.zTo;
+                        
+                        var tZato = this.cant3 * totalP;    
                     }
                     if (this.cant3 >= 2000) {
-                        this.totalP = this.zTo * (20/100);
-                        this.tZato = this.cant3 * this.totalP;    
+                        var totalP = (this.zTo * (20/100))+ this.zTo;
+                        var tZato = this.cant3 * totalP;    
                     }
                     // ZAPATILLAS
                     if (this.cant4 >= 0 && this.cant4 < 1700) {
-                        this.tZata = 0;
+                        var tZata = 0;
                     }
                     else if (this.cant4 >= 1700 && this.cant4 < 3000) {
-                        this.totalP1 = this.zTa * (15/100);
-                        this.tZata = this.cant4 * this.totalP1; 
+                        var totalP1 = (this.zTa * (15/100)) + this.zTa;
+                        var tZata = this.cant4 * totalP1; 
                     }
                     if (this.cant4 >= 3000) {
-                        this.totalP1 = this.zTa * (30/100);
-                        this.tZata = this.cant4 * this.totalP1; 
+                        var totalP1 = (this.zTa * (30/100)) + this.zTa;
+                        var tZata = this.cant4 * totalP1; 
                     }
                     // HIJOS
                     
                     if (this.cant5 == 0 ) {
-                        this.tHijo = 0;
+                        var tHijo = 0;
                         }
                     else if (this.cant5 > 0 && this.cant5 <= 1) {
-                        this.tHijo = this.hijo2;
+                        var tHijo = hijo2;
                         }
                     if (this.cant5 >= 2 ) {
-                        this.tHijo = this.cant5 * this.hijo1;
+                        var tHijo = this.cant5 * hijo1;
                     } 
-                    
-            
-                    this.total = this.salarioB3  + 102854 + this.tZato + this.tZata + this.tHijo + this.tHoras;
+                    var total = this.salarioB3  + 102854 + tZato + tZata + tHijo + tHoras;
+                    this.tnsam = total;
 
-                    this.arrayDatos.push({nombre:this.nom1, cargo:this.msm, totalR:this.total})
+                    this.arrayDatos.push({nombre:this.nom1, cargo:this.msm, totalR:total})
 
                     this.nom1=null;
                 }
@@ -186,15 +207,30 @@ var app = new Vue({
             timer: 1500
             })
         },
+        editar(){
+             this.zTo = this.eZto;
+             this.zTa = this.eZta;
+
+             this.salarioB = this.eSalarioB;
+             this.salarioB2 = this.eSalarioB2;
+             this.salarioB3 = this.eSalarioB3;
+
+             this.comi1 = this.eComi1;
+             this.comi2 = this.eComi2;
+
+             this.cantZ = this.eCantZ;
+            
+        },
 
     },
     computed: {
         result: function(){
             var result=0;
             for (var i = 0; i < this.arrayDatos.length; i++) {
-                result = result+ parseInt(this.arrayDatos[i].total);              
+                result = result+ parseInt(this.arrayDatos[i].totalR);              
             }
-            return result;
+            return(result);
+            
         }
     },
 })
